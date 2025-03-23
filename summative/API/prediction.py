@@ -19,24 +19,24 @@ app.add_middleware(
 #  a Pydantic Model for the input data.
 
 class InputData(BaseModel):
-    nitrogen: float = Field(..., description="Nitrogen level in the soil (ppm, range: 0-200)", example=100.0)
-    phosphorus: float = Field(..., description="Phosphorus level in the soil (ppm, range: 0-100)", example=50.0)
-    potassium: float = Field(..., description="Potassium level in the soil (ppm, range: 0-150)", example=75.0)
-    temperature: float = Field(..., description="Average soil temperature (°C, range: 0-40)", example=25.0)
-    humidity: float = Field(..., description="Average relative humidity (%, range: 0-100)", example=60.0)
-    rainfall: float = Field(..., description="Total rainfall (mm, range: 0-30)", example=10.0)
-    elevation: float = Field(..., description="Elevation above sea level (meters, range: 0-1000)", example=500.0)
-    slope: float = Field(..., description="Slope of the terrain (degrees, range: 0-90)", example=5.0)
-    aspect: float = Field(..., description="Aspect of the terrain (degrees, 0-360)", example=180.0)
-    water_holding_capacity: float = Field(..., description="Water holding capacity of the soil (%, range: 0-100)", example=30.0)
-    wind_speed: float = Field(..., description="Average wind speed (m/s, range: 0-50)", example=10.0, ge=0, le=50) # Added range constraints
-    solar_radiation: float = Field(..., description="Average solar radiation (W/m², range: 0-300)", example=200.0)
-    ec: float = Field(..., description="Electrical conductivity of the soil (dS/m, range: 0-2)", example=0.5)
-    zn: float = Field(..., description="Zinc level in the soil (ppm, range: 0-5)", example=2.0)
-    soil_texture_Loam: float = Field(..., description="Soil texture Loam (1 if yes, 0 if no)", example=0.0)
-    soil_texture_Sandy: float = Field(..., description="Soil texture Sandy (1 if yes, 0 if no)", example=1.0)
-    soil_texture_Sandy_Clay: float = Field(..., description="Soil texture Sandy Clay (1 if yes, 0 if no)", example=0.0)
-    soil_texture_Sandy_Loam: float = Field(..., description="Soil texture Sandy Loam (1 if yes, 0 if no)", example=0.0)
+    nitrogen: float = Field(..., description="Nitrogen level in the soil (ppm, range: 0-200)", example=100.0, ge=0, le=200)
+    phosphorus: float = Field(..., description="Phosphorus level in the soil (ppm, range: 0-100)", example=50.0, ge=0, le=100)
+    potassium: float = Field(..., description="Potassium level in the soil (ppm, range: 0-150)", example=75.0, ge=0, le=150)
+    temperature: float = Field(..., description="Average soil temperature (°C, range: 0-40)", example=25.0, ge=0, le=40)
+    humidity: float = Field(..., description="Average relative humidity (%, range: 0-100)", example=60.0, ge=0, le=100)
+    rainfall: float = Field(..., description="Total rainfall (mm, range: 0-30)", example=10.0, ge=0, le=30)
+    elevation: float = Field(..., description="Elevation above sea level (meters, range: 0-1000)", example=500.0, ge=0, le=1000)
+    slope: float = Field(..., description="Slope of the terrain (degrees, range: 0-90)", example=5.0, ge=0, le=90)
+    aspect: float = Field(..., description="Aspect of the terrain (degrees, 0-360)", example=180.0, ge=0, le=360)
+    water_holding_capacity: float = Field(..., description="Water holding capacity of the soil (%, range: 0-100)", example=30.0, ge=0, le=100)
+    wind_speed: float = Field(..., description="Average wind speed (m/s, range: 0-50)", example=10.0, ge=0, le=50)
+    solar_radiation: float = Field(..., description="Average solar radiation (W/m², range: 0-300)", example=200.0, ge=0, le=300)
+    ec: float = Field(..., description="Electrical conductivity of the soil (dS/m, range: 0-2)", example=0.5, ge=0, le=2)
+    zn: float = Field(..., description="Zinc level in the soil (ppm, range: 0-5)", example=2.0, ge=0, le=5)
+    soil_texture_Loam: float = Field(..., description="Soil texture Loam (1 if yes, 0 if no)", example=0.0, ge=0, le=1)
+    soil_texture_Sandy: float = Field(..., description="Soil texture Sandy (1 if yes, 0 if no)", example=1.0, ge=0, le=1)
+    soil_texture_Sandy_Clay: float = Field(..., description="Soil texture Sandy Clay (1 if yes, 0 if no)", example=0.0, ge=0, le=1)
+    soil_texture_Sandy_Loam: float = Field(..., description="Soil texture Sandy Loam (1 if yes, 0 if no)", example=0.0, ge=0, le=1)
 
 try:
     model_path = "summative/linear_regression/best_ph_model.joblib"
