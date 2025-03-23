@@ -40,8 +40,8 @@ class InputData(BaseModel):
 
 
 try:
-    model_path = "../linear_regression/best_ph_model.joblib"
-    scaler_path = "../linear_regression/scaler.joblib"
+    model_path = "summative/linear_regression/best_ph_model.joblib"
+    scaler_path = "summative/linear_regression/scaler.joblib"
 
     print(f"Model Path: {model_path}")
     print(f"Scaler Path: {scaler_path}")
