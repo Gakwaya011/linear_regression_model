@@ -19,25 +19,24 @@ app.add_middleware(
 #  a Pydantic Model for the input data.
 
 class InputData(BaseModel):
-    nitrogen: float = Field(..., description="Nitrogen level", example=100.0)
-    phosphorus: float = Field(..., description="Phosphorus level", example=50.0)
-    potassium: float = Field(..., description="Potassium level", example=75.0)
-    temperature: float = Field(..., description="Temperature", example=25.0)
-    humidity: float = Field(..., description="Humidity", example=60.0)
-    rainfall: float = Field(..., description="Rainfall", example=10.0)
-    elevation: float = Field(..., description="Elevation", example=500.0)
-    slope: float = Field(..., description="Slope", example=5.0)
-    aspect: float = Field(..., description="Aspect", example=180.0)
-    water_holding_capacity: float = Field(..., description="Water holding capacity", example=30.0)
-    wind_speed: float = Field(..., description="Wind speed", example=10.0, ge=0, le=50) # Added range constraints
-    solar_radiation: float = Field(..., description="Solar radiation", example=200.0)
-    ec: float = Field(..., description="Electrical conductivity", example=0.5)
-    zn: float = Field(..., description="Zinc level", example=2.0)
+    nitrogen: float = Field(..., description="Nitrogen level in the soil (ppm)", example=100.0)
+    phosphorus: float = Field(..., description="Phosphorus level in the soil (ppm)", example=50.0)
+    potassium: float = Field(..., description="Potassium level in the soil (ppm)", example=75.0)
+    temperature: float = Field(..., description="Average soil temperature (°C)", example=25.0)
+    humidity: float = Field(..., description="Average relative humidity (%)", example=60.0)
+    rainfall: float = Field(..., description="Total rainfall (mm)", example=10.0)
+    elevation: float = Field(..., description="Elevation above sea level (meters)", example=500.0)
+    slope: float = Field(..., description="Slope of the terrain (degrees)", example=5.0)
+    aspect: float = Field(..., description="Aspect of the terrain (degrees, 0-360)", example=180.0)
+    water_holding_capacity: float = Field(..., description="Water holding capacity of the soil (%)", example=30.0)
+    wind_speed: float = Field(..., description="Average wind speed (m/s)", example=10.0, ge=0, le=50) # Added range constraints
+    solar_radiation: float = Field(..., description="Average solar radiation (W/m²)", example=200.0)
+    ec: float = Field(..., description="Electrical conductivity of the soil (dS/m)", example=0.5)
+    zn: float = Field(..., description="Zinc level in the soil (ppm)", example=2.0)
     soil_texture_Loam: float = Field(..., description="Soil texture Loam (1 if yes, 0 if no)", example=0.0)
     soil_texture_Sandy: float = Field(..., description="Soil texture Sandy (1 if yes, 0 if no)", example=1.0)
     soil_texture_Sandy_Clay: float = Field(..., description="Soil texture Sandy Clay (1 if yes, 0 if no)", example=0.0)
     soil_texture_Sandy_Loam: float = Field(..., description="Soil texture Sandy Loam (1 if yes, 0 if no)", example=0.0)
-
 
 try:
     model_path = "summative/linear_regression/best_ph_model.joblib"
@@ -53,10 +52,24 @@ except Exception as e:
 
 # Create a Pydantic Model for the prediction return.
 class PredictionResponse(BaseModel):
-    prediction: float
+    prediction: float = Field(..., description="Predicted pH value of the soil.")
 
-@app.post("/predict", response_model=PredictionResponse) #Add the response model here.
+@app.post("/predict", response_model=PredictionResponse, summary="Predict soil pH based on environmental and soil conditions.")
 async def predict(data: InputData):
+    """
+    Predicts the pH value of soil using a pre-trained linear regression model.
+
+    This endpoint takes environmental and soil data as input and returns the predicted pH value.
+
+    Args:
+        data: Input data containing soil and environmental parameters.
+
+    Returns:
+        A JSON object with the predicted pH value.
+
+    Raises:
+        HTTPException: If an error occurs during prediction.
+    """
     try:
         input_array = np.array([
             data.nitrogen, data.phosphorus, data.potassium, data.temperature,
