@@ -46,7 +46,7 @@ My model was trained on a Kaggle dataset with soil and environmental data. I pre
 
 ## Live Links
 
-* **API Endpoint:** [https://ph-prediction-api.onrender.com/predict](https://ph-prediction-api.onrender.com/predict)
+* **API Endpoint:** [https://ph-prediction-api.onrender.com/docs#/default/predict_predict_post](https://ph-prediction-api.onrender.com/docs#/default/predict_predict_post)
 * **Video Demo:** [https://youtu.be/eCww5HfpBak](https://youtu.be/eCww5HfpBak)
 
 ## Running the Mobile App
@@ -56,7 +56,7 @@ To run the app:
 1.  Clone the repository:
 
     ```bash
-    git clone [https://github.com/Gakwaya011/linear_regression_model.git](https://github.com/Gakwaya011/linear_regression_model.git)
+    git clone :** [https://github.com/Gakwaya011/linear_regression_model.git](https://github.com/Gakwaya011/linear_regression_model.git)
     cd FlutterApp/
     ```
 
