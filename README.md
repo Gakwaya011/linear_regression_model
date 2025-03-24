@@ -56,7 +56,7 @@ To run the app:
 1.  Clone the repository:
 
     ```bash
-    git clone :** [https://github.com/Gakwaya011/linear_regression_model.git](https://github.com/Gakwaya011/linear_regression_model.git)
+    git clone  https://github.com/Gakwaya011/linear_regression_model.git
     cd FlutterApp/
     ```
 
