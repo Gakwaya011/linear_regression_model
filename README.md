@@ -1,6 +1,6 @@
 # Predicting Soil pH: A Machine Learning Approach
 
-This project delivers a practical solution for estimating soil pH, a key factor in agriculture. We've built a predictive system combining a machine learning API and a user-friendly mobile app.
+This project delivers a practical solution for estimating soil pH, a key factor in agriculture. I've built a predictive system combining a machine learning API and a user-friendly mobile app.
 
 ## Project Highlights
 
@@ -13,8 +13,8 @@ This project delivers a practical solution for estimating soil pH, a key factor 
 
 * **Use Case:** Agricultural soil pH prediction.
 * **Data Source:** `cleaned_rwanda_crops_dataset.csv` (from Kaggle).
-* **Data Insights:** We visualized feature relationships using correlation heatmaps and variable distributions to understand the data.
-* **Model Selection:** We explored Linear Regression, Decision Trees, and Random Forest. Random Forest, with the lowest Mean Squared Error (MSE), was chosen as the best model and saved as `best_ph_model.joblib`. We also plotted the linear regression line of best fit.
+* **Data Insights:** I visualized feature relationships using correlation heatmaps and variable distributions to understand the data.
+* **Model Selection:** I explored Linear Regression, Decision Trees, and Random Forest. Random Forest, with the lowest Mean Squared Error (MSE), was chosen as the best model and saved as `best_ph_model.joblib`. I also plotted the linear regression line of best fit.
 * **Prediction Function:** A Python function is included to make predictions using the trained model.
 
 ## API for Predictions
@@ -42,7 +42,7 @@ This project delivers a practical solution for estimating soil pH, a key factor 
 
 ## Data Source
 
-Our model was trained on a Kaggle dataset with soil and environmental data. We preprocessed the data to ensure it was ready for machine learning.
+My model was trained on a Kaggle dataset with soil and environmental data. I preprocessed the data to ensure it was ready for machine learning.
 
 ## Live Links
 
