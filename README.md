@@ -17,6 +17,10 @@ This project delivers a practical solution for estimating soil pH, a key factor 
 * **Model Selection:** I explored Linear Regression, Decision Trees, and Random Forest. Random Forest, with the lowest Mean Squared Error (MSE), was chosen as the best model and saved as `best_ph_model.joblib`. I also plotted the linear regression line of best fit.
 * **Prediction Function:** A Python function is included to make predictions using the trained model.
 
+## Data Source
+
+My model was trained on a Kaggle dataset with soil and environmental data. I preprocessed the data to ensure it was ready for machine learning.
+
 ## API for Predictions
 
 * **Tech:** FastAPI.
@@ -39,10 +43,6 @@ This project delivers a practical solution for estimating soil pH, a key factor 
 
 * **Video Link:** [https://youtu.be/eCww5HfpBak](https://youtu.be/eCww5HfpBak)
 * **Content:** The video showcases the app, the API via Swagger UI, and explains the model's performance and selection.
-
-## Data Source
-
-My model was trained on a Kaggle dataset with soil and environmental data. I preprocessed the data to ensure it was ready for machine learning.
 
 ## Live Links
 
