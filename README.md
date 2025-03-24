@@ -1,80 +1,79 @@
-# Soil pH Prediction Project - Summative Assignment
+# Predicting Soil pH: A Machine Learning Approach
 
-This project provides a machine learning-based API and a Flutter mobile application for predicting soil pH, addressing the need for efficient soil analysis in agriculture.
+This project delivers a practical solution for estimating soil pH, a key factor in agriculture. We've built a predictive system combining a machine learning API and a user-friendly mobile app.
 
-## Project Overview
+## Project Highlights
 
-* **Objective:** To develop a system for accurate soil pH prediction using machine learning.
+* **Goal:** To provide accessible soil pH predictions using machine learning.
 * **Components:**
-    * API (Backend): FastAPI-based prediction API.
-    * Flutter App (Frontend): Mobile application for user interaction.
+    * FastAPI-powered API for predictions (backend).
+    * Flutter mobile app for easy user input (frontend).
 
-## Task 1: Linear Regression Task
+## Model Development and Analysis
 
-* **Use Case:** Soil pH prediction for agricultural optimization.
-* **Dataset:** `cleaned_rwanda_crops_dataset.csv` [Kaggle].
-* **Data Analysis:**
-    * Correlation heatmap and variable distribution visualizations were used to understand feature relationships.
-* **Model Development:**
-    * Linear Regression, Decision Tree, and Random Forest models were implemented.
-    * Random Forest was selected as the best-performing model based on Mean Squared Error (MSE).
-    * The selected model was saved as `best_ph_model.joblib`.
-    * Linear regression model fit plot has been added.
-* **Prediction Script:** A script to make predictions using the saved model is included.
+* **Use Case:** Agricultural soil pH prediction.
+* **Data Source:** `cleaned_rwanda_crops_dataset.csv` (from Kaggle).
+* **Data Insights:** We visualized feature relationships using correlation heatmaps and variable distributions to understand the data.
+* **Model Selection:** We explored Linear Regression, Decision Trees, and Random Forest. Random Forest, with the lowest Mean Squared Error (MSE), was chosen as the best model and saved as `best_ph_model.joblib`. We also plotted the linear regression line of best fit.
+* **Prediction Function:** A Python function is included to make predictions using the trained model.
 
-## Task 2: API Development
+## API for Predictions
 
-* **API Framework:** FastAPI.
+* **Tech:** FastAPI.
 * **Endpoint:** `/predict` (POST).
 * **Features:**
-    * Swagger UI documentation available at: `https://ph-prediction-api.onrender.com/docs`
-    * CORS middleware implemented.
-    * Pydantic models enforce data types and range constraints.
-    * requirements.txt file is included.
-* **Deployment:** Render.com.
+    * Interactive documentation at: [https://ph-prediction-api.onrender.com/docs](https://ph-prediction-api.onrender.com/docs)
+    * Cross-Origin Resource Sharing (CORS) is enabled.
+    * Input data is validated using Pydantic.
+    * `requirements.txt` is provided.
+* **Deployment:** Hosted on Render.com.
 
-## Task 3: Flutter Mobile Application
+## Mobile App for Input and Results
 
 * **Features:**
-    * User input via TextFields.
-    * "Predict" button to trigger API calls.
-    * Display of prediction results or error messages.
+    * Text fields for inputting soil data.
+    * A "Predict" button to get results.
+    * Clear display of predictions or error messages.
 
-## Task 4: Video Demonstration
+## Video Demo
 
-* **Video Link:** [https://youtu.be/eCww5HfpBak]
-* **Content:**
-    * Demonstration of the mobile app and Swagger UI.
-    * Explanation of model performance and selection.
+* **Video Link:** [https://youtu.be/eCww5HfpBak](https://youtu.be/eCww5HfpBak)
+* **Content:** The video showcases the app, the API via Swagger UI, and explains the model's performance and selection.
 
-## Source of Data
+## Data Source
 
-The dataset used for training was sourced from Kaggle, containing soil and environmental data. The data was preprocessed to handle missing values, normalize numerical features, and encode categorical variables to improve model performance.
+Our model was trained on a Kaggle dataset with soil and environmental data. We preprocessed the data to ensure it was ready for machine learning.
 
 ## Live Links
 
-* **API:**
-    * The public API endpoint for predictions is hosted at: `https://ph-prediction-api.onrender.com/predict`
-* **Video Demo:**
-    * Watch the demo video showcasing how the app works and how predictions are made: [https://youtu.be/eCww5HfpBak]
+* **API Endpoint:** [https://ph-prediction-api.onrender.com/predict](https://ph-prediction-api.onrender.com/predict)
+* **Video Demo:** [https://youtu.be/eCww5HfpBak](https://youtu.be/eCww5HfpBak)
 
-## How to Run Mobile App
+## Running the Mobile App
+
+To run the app:
 
 1.  Clone the repository:
+
     ```bash
-    git clone [https://github.com/Cchancee/linear_regression_model.git](https://www.google.com/search?q=https://github.com/Cchancee/linear_regression_model.git)
+    git clone [https://github.com/Cchancee/linear_regression_model.git](https://github.com/Cchancee/linear_regression_model.git)
     cd FlutterApp/
     ```
+
 2.  Install Flutter dependencies:
+
     ```bash
     flutter pub get
     ```
-3.  Connect your device or use an emulator, and run the app:
+
+3.  Run the app:
+
     ```bash
     flutter run
     ```
-    The app will now open and you can enter values for the soil and environmental parameters to receive pH predictions.
+
+    You can now input soil data and receive pH predictions.
 
 ## Author
 
-* [Christophe Gakwaya]
+* Christophe Gakwaya
